@@ -4,7 +4,6 @@ import (
 	"flag"
 	"net/http"
 	"strconv"
-	"fmt"
 	"time"
 )
 
