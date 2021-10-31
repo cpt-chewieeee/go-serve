@@ -14,12 +14,18 @@ var (
 	epoch = time.Unix(0, 0).Format(time.RFC1123)
 )
 
+var defaultHeaders = map[string]string{
+	"Access-Control-Allow-Origin": "*",
+	"Expires": epoch,
+	"Cache-Control": "no-cache, private, max-age=0",
+	"Pragma": "no-cache",
+	"X-Accel-Expires": "0",
+}
+
 func handler(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Access-Control-Allow-Origin", "*")
-	w.Header().Add("Cache-Control", "no-cache, private, max-age=0")
-	w.Header().Add("Expires", epoch)
-	w.Header().Add("Pragma", "no-cache")
-	w.Header().Add("X-Accel-Expires", "0")
+	for k, v := range defaultHeaders {
+		w.Header().Add(k, v)
+	}
 
 	http.FileServer(http.Dir(*path)).ServeHTTP(w, r)
 }

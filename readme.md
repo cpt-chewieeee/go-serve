@@ -18,3 +18,11 @@ Run
   $ go-serve -path ~/Desktop -port 8080 
   
 ```
+
+
+Default Configs
+```
+  -path : "."
+  -port : 8000
+
+```
