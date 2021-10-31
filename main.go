@@ -10,7 +10,7 @@ import (
 
 var (
 	port = flag.Int("port", 8000, "port number")
-	path = flag.String("path", ".", "Path [default .]")
+	path = flag.String("path", ".", "path")
 	epoch = time.Unix(0, 0).Format(time.RFC1123)
 )
 
