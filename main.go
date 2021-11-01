@@ -5,6 +5,8 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+	C "./common"
+	"fmt"
 )
 
 
@@ -33,7 +35,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	flag.Parse()
+	app := C.App{}
 
+	fmt.Println(app)
 	http.HandleFunc("/", handler)
 	if err := http.ListenAndServe(":" + strconv.Itoa(*port), nil); err != nil {
 		panic(err)
