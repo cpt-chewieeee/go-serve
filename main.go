@@ -8,7 +8,6 @@ import (
 	C "./common"
 	M "./middleware"
 	Ctrl "./controllers"
-	"fmt"
 )
 
 // params
@@ -31,7 +30,7 @@ func main() {
 	flag.Parse()
 	app := newApp()
 
-	fmt.Println(*app)
+
 	http.HandleFunc("/", M.MiddlewareChain(Ctrl.FileHttpServer, *app))
 	http.HandleFunc("/health", M.MiddlewareChain(C.HealthHandler, *app))
 	if err := http.ListenAndServe(":" + strconv.Itoa(app.Port), nil); err != nil {

@@ -11,6 +11,7 @@ var defaultHeaders = map[string]string{
 	"Cache-Control": "no-cache, private, max-age=0",
 	"Pragma": "no-cache",
 	"X-Accel-Expires": "0",
+	"Content-Type": "application/json",
 }
 
 
